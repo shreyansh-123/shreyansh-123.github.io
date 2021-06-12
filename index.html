@@ -1,0 +1,240 @@
+<html>
+<head>
+    <title>Google Dorker Made by shreyansh</title>
+    <style>
+    *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body
+        {
+            font-family: sans-serif;
+            background-color: black;
+            color: limegreen;
+        }
+       .input, input
+        {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 10px;
+            flex-direction: column;
+        }
+        input
+        {
+            height: 40px;;
+            width: 280px;
+            border: 2px solid lime;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        .main
+        {
+            display: flex;
+            justify-content: space-around;
+        }
+        .exmain
+        {
+             display: flex;
+    flex-wrap: wrap;
+            text-align: center;
+        }
+        .list
+        {
+            flex: 33%;
+            cursor: pointer;
+    height: 50px;
+            justify-content: center;
+    text-align: center;
+    align-items: center;
+            padding-top: 16px;
+        }
+        
+    </style>
+    <body>
+        
+        <div class="input">
+        <h1 style="color: orangered; margin: 10px;">Google Dorker</h1>    
+        <input type="text" id="input" placeholder="Enter target Name" value="target.com">
+        </div>
+        <div class="main">
+            <div class="exmain">
+                <h2 class="list" onclick="go(1)">Find Subdomains</h2>
+                <h2 class="list" onclick="go(2)">Find Sub-Subdomains</h2>
+                <h2 class="list" onclick="go(3)">.htaccess sensitive files</h2>
+                <h2 class="list" onclick="go(4)">Employees on LINKEDIN</h2>
+                <h2 class="list" onclick="go(5)">Find Pastebin entries</h2>
+                <h2 class="list" onclick="go(6)">Apache STRUTS RCE</h2>
+                <h2 class="list" onclick="go(7)">Open Redirects</h2>
+                <h2 class="list" onclick="go(8)">Install / Setup files</h2>
+                <h2 class="list" onclick="go(9)">Finding Backdoors</h2>
+                <h2 class="list" onclick="go(10)">phpinfo()</h2>
+                <h2 class="list" onclick="go(11)">Publicly exposed documents</h2>
+                <h2 class="list" onclick="go(12)"> SQL errors</h2>
+                <h2 class="list" onclick="go(13)">Login pages</h2>
+                <h2 class="list" onclick="go(14)"> Backup and old files</h2>
+                <h2 class="list" onclick="go(15)"> Exposed log files</h2>
+                <h2 class="list" onclick="go(16)">Find WordPress</h2>
+                <h2 class="list" onclick="go(33)"> Exposed Database files</h2>
+                <h2 class="list" onclick="go(34)"> Exposed Configuration files</h2>
+                
+                 <h2 class="list" onclick="go(17)">Directory listing vulnerabilities</h2>
+                <h2 class="list" onclick="go(18)">Find WordPress 2</h2>
+                <h2 class="list" onclick="go(19)">Find WordPress via Wayback Machine</h2>
+                <h2 class="list" onclick="go(20)"> Search in GITHUB</h2>
+                <h2 class="list" onclick="go(21)"> Search in OpenBugBounty</h2>
+                <h2 class="list" onclick="go(22)">Find .SWF file on Google</h2>
+                <h2 class="list" onclick="go(23)">Find .SWF file on Yandex</h2>
+                <h2 class="list" onclick="go(24)">Serch on Reddit</h2>
+                <h2 class="list" onclick="go(25)">Find on Cross Domain</h2>
+                <h2 class="list" onclick="go(26)">ThreadCrowd</h2>
+                <h2 class="list" onclick="go(27)">Search SWF in WayBack Machine</h2>
+                <h2 class="list" onclick="go(28)">Search on WayBack Machine 2</h2>
+                <h2 class="list" onclick="go(29)">Search on WayBack Machine All</h2>
+                <h2 class="list" onclick="go(30)">Search on crt.sh</h2>
+                <h2 class="list" onclick="go(31)">Search on SHODAN</h2>
+                <h2 class="list" onclick="go(32)">Find on Censys IP</h2>
+                <h2 class="list" onclick="go(35)">Find on Censys Domain</h2>
+                <h2 class="list" onclick="go(36)">Find on Censys Certificates </h2>
+            </div>
+            
+            
+<!--
+            <div class="exmain">
+               
+            </div>
+-->
+        </div>
+        <footer>
+                <p class="footer" style="display: flex; justify-content: center; align-items: center; text-align: center; color: orange; margin-top: 10px;">Copyright 2021 shreyansh</p>
+            </footer>
+    </body>
+    </head>
+    <script>
+        const input = document.getElementById('input');
+   function go(type) {
+       let url;
+       const open = 'site:' + input.value;
+       switch(type)
+           {
+               case 1: 
+                    url  = `https://www.google.com/search?q= *.${open}`;
+                   break;
+           
+               case 2: 
+            url  = `https://www.google.com/search?q= *.*. ${open}`;
+                   break;
+           
+               case 3: 
+                    url  = `https://www.google.com/search?q= + ${open} |inurl:".htaccess" | inurl:"/.git" -github`;
+           break;
+               case 4: 
+                    url  = `https://www.google.com/search?q= site:linkedin.com employees ${input.value}`;
+                   break;
+           
+               case 5: 
+                    url  = `https://www.google.com/search?q= site:pastebin.com ${input.value}`;
+           break;
+               case 6: 
+                    url  = `https://www.google.com/search?q= + ${open} +ext:action+|+ext:struts+|+ext:do`;
+           break;
+               case 7: 
+                    url  = `https://www.google.com/search?q= + ${open} +inurl:redir+|+inurl:url+|+inurl:redirect+|+inurl:return+|+inurl:src=http+|+inurl:r=http`;
+           break;
+               case 8: 
+                    url  = `https://www.google.com/search?q= + ${open} +inurl:readme+|+inurl:license+|+inurl:install+|+inurl:setup+|+inurl:config`;
+           break;
+               case 9: 
+                    url  = `https://www.google.com/search?q= + ${open} +inurl:shell+|+inurl:backdoor+|+inurl:wso+|+inurl:cmd+|+shadow+|+passwd+|+boot.ini+|+inurl:backdoor`;
+           break;
+               case 10: 
+                    url  = `https://www.google.com/search?q= + ${open} +ext:php+intitle:phpinfo+"published+by+the+PHP+Group"`;
+           break;
+               case 11: 
+                    url  = `https://www.google.com/search?q= + ${open} +ext:doc+|+ext:docx+|+ext:odt+|+ext:pdf+|+ext:rtf+|+ext:sxw+|+ext:psw+|+ext:ppt+|+ext:pptx+|+ext:pps+|+ext:csv`;
+           break;
+               case 12: 
+                    url  = `https://www.google.com/search?q= + ${open}  +intext:"sql+syntax+near"+|+intext:"syntax+error+has+occurred"+|+intext:"incorrect+syntax+near"+|+intext:"unexpected+end+of+SQL+command"+|+intext:"Warning:+mysql_connect()"+|+intext:"Warning:+mysql_query()"+|+intext:"Warning:+pg_connect()"`;
+           break;
+               case 13: 
+                    url  = `https://www.google.com/search?q= + ${open}  +inurl:login`;
+           break;
+               case 14: 
+                    url  = `https://www.google.com/search?q= + ${open} ext:bkf+|+ext:bkp+|+ext:bak+|+ext:old+|+ext:backup`;
+           break;
+               case 15: 
+                    url  = `https://www.google.com/search?q= + ${open} +ext:log`;
+           break;
+               case 16: 
+                    url  = `https://www.google.com/search?q= + ${open} inurl:wp- | inurl:wp-content | inurl:plugins | inurl:uploads | inurl:themes | inurl:download`;
+           break;
+               case 17: 
+                    url  = `https://www.google.com/search?q= + ${open} +intitle:index.of`;
+           break;
+               case 18: 
+                    url  = `https://www.google.com/search?q= + ${open} +inurl:wp-content+|+inurl:wp-includes`;
+           break;
+               case 19: 
+                    url  = `http://wwwb-dedup.us.archive.org:8083/cdx/search?url=${input.value}/&matchType=domain&collapse=digest&output=text&fl=original,timestamp&filter=urlkey:.*wp[-].*&limit=1000000&xx=`;
+           break;
+               case 20: 
+                    url  = `https://github.com/search?q="*. ${input.value} "&type=host`;
+           break;
+               case 21: 
+                    url  = `https://www.openbugbounty.org/search/?search=${input.value}&type=host`;
+           break;
+               case 22: 
+                    url  = `https://www.google.com/search?q=+inurl:${input.value} ext:swf`;
+           break;
+               case 23: 
+                    url  = `https://yandex.com/search/?text=${open}%20mime:swf`;
+           break;
+               case 24: 
+                    url  = `https://www.reddit.com/search/?q=${input.value}&source=recent`;
+           break;
+               case 25: 
+                    url  = `http://${input.value}/crossdomain.xml`;
+           break;
+               case 26: 
+                    url  = `http://threatcrowd.org/domain.php?domain=${input.value}`;
+           break;
+               case 27: 
+                    url  = `https://web.archive.org/cdx/search?url=${input.value}/&matchType=domain&collapse=urlkey&output=text&fl=original&filter=urlkey:.*swf&limit=100000&_=1507209148310`;
+           break;
+               case 28: 
+                    url  = `https://web.archive.org/cdx/search?url=${input.value}/&matchType=domain&collapse=urlkey&output=text&fl=original&filter=mimetype:application/x-shockwave-flash&limit=100000&_=1507209148310`;
+           break;
+               case 29: 
+                    url  = `https://web.archive.org/web/*/${input.value}/*`;
+           break;
+               case 30: 
+                    url  = `https://crt.sh/?q=%25.${input.value}`;
+           break;
+               case 31: 
+                    url  = `https://www.shodan.io/search?query=${input.value}`;
+           break;
+               case 32: 
+                    url  = `https://censys.io/ipv4?q=asdh`;
+           break;
+               case 33: 
+                    url  = `https://www.google.com/search?q=${open} ext:sql+|+ext:dbf+|+ext:mdb`;
+           break;
+               case 34: 
+                    url  = `https://www.google.com/search?q= + ${open} +ext:xml+|+ext:conf+|+ext:cnf+|+ext:reg+|+ext:inf+|+ext:rdp+|+ext:cfg+|+ext:txt+|+ext:ora+|+ext:ini`;
+           break;
+               case 35: 
+                    url  = `https://censys.io/domain?q=${input.value}`;
+           break;
+               case 36: 
+                    url  = `https://censys.io/certificates?q=${input.value}`;
+                   break;
+           }
+        window.open(url);
+       console.log(url);
+    }
+    </script>
+</html>
